@@ -1,8 +1,34 @@
 var express = require('express'),
   mongoose = require('mongoose'),
   passport = require('passport'),
+  LocalStrategy = require('passport-local').Strategy,
   User = mongoose.model('User');
 
+passport.serializeUser(function(couple, done) {
+  done(null, couple._id);
+});
+
+passport.deserializeUser(function(id, done) {
+  couple.findById(id, function(err, couple){
+    done(null, couple);
+  });
+});
+
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
+  function(email, password, done){
+  couple.findOne({email: email}, function(err, user){
+    if(err) {
+      console.log(err);
+    } else if(!user){
+      return done(null, false, 'Incorrect email.');
+    } else {
+      return done(null, user);
+    }
+  })
+}));
 
 module.exports = function (app) {
 
@@ -18,14 +44,19 @@ module.exports = function (app) {
     User.findOne({
       email: req.body.email
     }, function(err, user){
+      console.log('user: ' + user);
       if(!user){
-        var newuser = {}
+        var newuser = {};
 
         newuser.fullname = req.body.fullname;
         newuser.email = req.body.email;
         newuser.password = req.body.password;
 
-        var newUser = new User(newuser);
+        var newUser = new User({
+          fullname: req.body.fullname,
+          email: req.body.email,
+          password: req.body.password
+        });
 
         newUser.save(function(err){
           if(err){
@@ -35,6 +66,8 @@ module.exports = function (app) {
             res.redirect('/');
           }
         });
+      } else {
+        res.send('lol')
       }
     })
   })
