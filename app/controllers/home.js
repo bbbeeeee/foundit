@@ -16,6 +16,26 @@ module.exports = function (app) {
     });
 
   });
+
+  app.route('/found')
+  .get(function(req, res, next){
+    
+  });
+
+  app.route('/found/:id')
+  .get(function(req, res, next){
+
+  });
+
+  app.route('/lost')
+  .get(function(req, res, next){
+
+  });
+
+  app.route('/lost/:id')
+  .get(function(req, res, next){
+
+  });
 };
 
 
