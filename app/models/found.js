@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 
 var FoundSchema = new Schema({
 	userId: Schema.Types.ObjectId,
+	title: String,
 	description: String
 });
 
@@ -14,3 +15,4 @@ var FoundResponsesSchema = new Schema({
 });
 
 mongoose.model('Found', FoundSchema);
+mongoose.model('Response', FoundResponsesSchema);

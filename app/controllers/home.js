@@ -2,7 +2,8 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article'),
   User = mongoose.model('User'),
-  Found = mongoose.model('Found');
+  Found = mongoose.model('Found'),
+  Response = mongoose.model('Response');
 
 module.exports = function (app) {
 
@@ -26,16 +27,34 @@ module.exports = function (app) {
         foundlist: foundList
       })
     });
-    
   });
 
   app.route('/found/:id')
   .get(function(req, res, next){
-    var _found = Found.findOne({_id: req.params.id}, function(err, doc){
-      res.render('found_specific', {
-        found: _found
+    Found.findOne({_id: req.params.id}, function(err, _found){
+      Response.find({foundId: _found._id}, function(err, _responses){
+        res.render('found_specific', {
+          found: _found,
+          responses: _responses
+        });
       });
     });
+  });
+
+  app.route('/this-is-mine')
+  .post(function(req, res, next){
+    var newResponse = new Response({
+      description: req.body.description,
+      email: req.body.description
+    });
+
+    newResponse.save(function(err){
+      if(err){
+        console.log(err);
+      } else {
+        res.redirect('/');
+      }
+    })
   });
 
   // get id from req.session
@@ -44,6 +63,7 @@ module.exports = function (app) {
     if(req.user){
       var newFound = new Found({
         userId: req.session.userId,
+        title: req.body.title,
         description: req.body.description
       });
 

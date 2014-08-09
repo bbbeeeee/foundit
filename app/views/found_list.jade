@@ -1,4 +1,7 @@
 extends layout
 
 block content
-	
+	ul
+		each found in foundlist
+			li
+				a(href="/found/#{found._id}")= found.description
