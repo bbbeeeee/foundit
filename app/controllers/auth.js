@@ -7,6 +7,9 @@ var express = require('express'),
 module.exports = function (app) {
 
   app.route('/login')
+  .get(function(req, res){
+    res.render('login')
+  })
   .post(passport.authenticate('local', { successRedirect: '/',
                                          failureRedirect: '/login' }));
 
