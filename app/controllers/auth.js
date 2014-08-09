@@ -3,11 +3,13 @@ var express = require('express'),
   passport = require('passport'),
   User = mongoose.model('User');
 
+
 module.exports = function (app) {
 
   app.route('/login')
   .post(passport.authenticate('local', { successRedirect: '/',
                                          failureRedirect: '/login' }));
+
   app.route('/signup')
   .post(function(req, res){
     User.findOne({
@@ -25,7 +27,7 @@ module.exports = function (app) {
         newUser.save(function(err){
           if(err){
             console.log(err);
-            res.send(400);
+            res.redirect('/login');
           } else {
             res.redirect('/');
           }
