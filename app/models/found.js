@@ -3,8 +3,14 @@ var mongoose = require('mongoose'),
 
 var FoundSchema = new Schema({
 	userId: Schema.Types.ObjectId,
-	password: String,
-	email: String
+	description: String
+});
+
+// List will return all with FoundSchema id as foundId
+var FoundResponsesSchema = new Schema({
+	userId: Schema.Types.ObjectId,
+	foundId: Schema.Types.ObjectId,
+	description: String,
 });
 
 mongoose.model('Found', FoundSchema);

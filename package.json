@@ -19,7 +19,9 @@
     "passport": "^0.2.0",
     "passport-local": "^1.0.0",
     "restifier": "^0.1.9",
-    "serve-favicon": "~2.0.1"
+    "sendgrid": "^1.1.1",
+    "serve-favicon": "~2.0.1",
+    "venmo": "0.0.2"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
