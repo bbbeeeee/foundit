@@ -9,7 +9,7 @@ db.on('error', function () {
   throw new Error('unable to connect to database at ' + config.db);
 });
 
-var modelsPath = '../app/models';
+var modelsPath = __dirname + '/app/models';
 fs.readdirSync(modelsPath).forEach(function (file) {
   if (file.indexOf('.js') >= 0) {
     require(modelsPath + '/' + file);
@@ -17,7 +17,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 });
 var app = express();
 
-require('../config/express')(app, config);
+require('./config/express')(app, config);
 
 require('./routes')(app);
 
