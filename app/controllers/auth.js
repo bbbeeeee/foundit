@@ -67,7 +67,7 @@ module.exports = function (app) {
           }
         });
       } else {
-        res.send('lol')
+        res.send('lol');
       }
     })
   })
