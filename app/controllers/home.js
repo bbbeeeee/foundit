@@ -1,6 +1,8 @@
 var express = require('express'),
   mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+  Article = mongoose.model('Article'),
+  User = mongoose.model('User'),
+  Found = mongoose.model('Found');
 
 module.exports = function (app) {
 
@@ -20,20 +22,39 @@ module.exports = function (app) {
   app.route('/found')
   .get(function(req, res, next){
 
+    res.render('found_list', {
+
+    })
   });
 
   app.route('/found/:id')
   .get(function(req, res, next){
 
+    res.render('found_specific', {
+
+    });
   });
 
-  app.route('/lost')
+  // get id from req.session
+  app.route('/i-found-something')
+  .post(function(req, res, next){
+    var newFound = new Found({
+      userId: req.session.userId,
+      description: req.body.description
+    });
+
+    newFound.save(function(err){
+      if(err){
+        console.log(err);
+      } else {
+        res.redirect('/')
+      }
+    })
+  })
   .get(function(req, res, next){
 
-  });
+    res.render('found_form', {
 
-  app.route('/lost/:id')
-  .get(function(req, res, next){
-
-  });
+    });
+  })
 };
