@@ -10,7 +10,7 @@ module.exports = function (app) {
     Article.find(function (err, articles) {
       if (err) return next(err);
       res.render('index', {
-        title: 'Generator-Express MVC',
+        title: 'FoundIt',
         articles: articles
       });
     });
@@ -19,7 +19,7 @@ module.exports = function (app) {
 
   app.route('/found')
   .get(function(req, res, next){
-    
+
   });
 
   app.route('/found/:id')
@@ -37,5 +37,3 @@ module.exports = function (app) {
 
   });
 };
-
-
