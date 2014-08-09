@@ -36,7 +36,7 @@ module.exports = function (app) {
         var _ownsThis = (req.user.userId == _found.userId)
         res.render('found_specific', {
           found: _found,
-          responses: _responses
+          responses: _responses,
           ownsThis: _ownsThis
         });
       });
