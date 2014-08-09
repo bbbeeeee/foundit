@@ -5,8 +5,7 @@ var UserSchema = new Schema({
 	fullname: String,
 	password: String,
 	email: {
-		type: String,
-		required: true
+		type: String
 	}
 });
 
