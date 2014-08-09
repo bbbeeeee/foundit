@@ -8,7 +8,6 @@ module.exports = function (app) {
 
   app.route('/')
   .get(function (req, res, next) {
-
     Article.find(function (err, articles) {
       if (err) return next(err);
       res.render('index', {
@@ -21,19 +20,21 @@ module.exports = function (app) {
 
   app.route('/found')
   .get(function(req, res, next){
-    var foundlist = Found.find({});
-    console.log(foundList);
-    res.render('found_list', {
-      foundlist: foundList
-    })
+    var foundList = Found.find({}, function(err, foundList){
+      console.log(foundList);
+      res.render('found_list', {
+        foundlist: foundList
+      })
+    });
+    
   });
 
   app.route('/found/:id')
   .get(function(req, res, next){
-    var _found = Found.findOne({_id: req.params.id});
-
-    res.render('found_specific', {
-      found: _found
+    var _found = Found.findOne({_id: req.params.id}, function(err, doc){
+      res.render('found_specific', {
+        found: _found
+      });
     });
   });
 
