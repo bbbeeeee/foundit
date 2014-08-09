@@ -67,5 +67,11 @@ module.exports = function (app) {
         res.send('lol');
       }
     })
-  })
+  });
+
+  app.route('/logout')
+  .get(function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 };
