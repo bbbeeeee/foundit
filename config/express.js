@@ -2,12 +2,16 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compress = require('compression');
-var methodOverride = require('method-override');
+var favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    compress = require('compression'),
+    methodOverride = require('method-override'),
+    session = require('express-session'),
+    MongoStore = require('connect-mongostore')(session),
+    mongoose = require('mongoose'),
+    passport = require('passport');
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
@@ -15,8 +19,27 @@ module.exports = function(app, config) {
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
   app.use(logger('dev'));
-  app.use(cookieParser());
-  app.use(bodyParser.json());  
+  app.use(bodyParser.json()); 
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  app.use(cookieParser()); 
+  app.use(session({
+    store: new MongoStore({ 
+      'db': 'wilu-dev', 
+      'collection': 'sessions',
+      'ttl': 60*60*60,
+      'mongooseConnection': mongoose.connections[0]
+  }),
+  resave: true,
+  saveUninitialized: true,
+  url: config.db,
+  secret: 'secret',
+  collection: 'sessions',
+  cookie: { maxAge: 60*60*60 }
+}));
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());

@@ -4,13 +4,13 @@ var express = require('express'),
   LocalStrategy = require('passport-local').Strategy,
   User = mongoose.model('User');
 
-passport.serializeUser(function(couple, done) {
-  done(null, couple._id);
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
-  couple.findById(id, function(err, couple){
-    done(null, couple);
+  User.findById(id, function(err, user){
+    done(null, user);
   });
 });
 
@@ -19,15 +19,15 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function(email, password, done){
-  couple.findOne({email: email}, function(err, user){
-    if(err) {
-      console.log(err);
-    } else if(!user){
-      return done(null, false, 'Incorrect email.');
-    } else {
-      return done(null, user);
-    }
-  })
+    User.findOne({email: email}, function(err, user){
+      if(err) {
+        console.log(err);
+      } else if(!user){
+        return done(null, false, 'Incorrect email.');
+      } else {
+        return done(null, user);
+      }
+    });
 }));
 
 module.exports = function (app) {
@@ -46,11 +46,8 @@ module.exports = function (app) {
     }, function(err, user){
       console.log('user: ' + user);
       if(!user){
-        var newuser = {};
-
-        newuser.fullname = req.body.fullname;
-        newuser.email = req.body.email;
-        newuser.password = req.body.password;
+        console.log(req.body);
+        console.log(req);
 
         var newUser = new User({
           fullname: req.body.fullname,
@@ -70,5 +67,11 @@ module.exports = function (app) {
         res.send('lol');
       }
     })
-  })
+  });
+
+  app.route('/logout')
+  .get(function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 };
