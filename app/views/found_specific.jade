@@ -4,17 +4,19 @@ block content
 	div.originalDescription
 		h2= found.title
 		p= found.description
-	div.respond
-		h2 I think this is mine:
-		form(action="/this-is-mine", method="POST")
-			input(type="text", name="description")
-			input(type="text", name="email")
-			button(type="submit") Submit
-	div.responses
-		for response in responses
-			p= responses.description
-			form(action="/send-that-shit", method="POST")
-				input(type="hidden", value="#{response.description}")
-				input(type="hidden", value="#{response.email}")
-				button(type="submit") This one's it!
+	if ownsThis
+		div.respond
+			h2 I think this is mine:
+			form(action="/this-is-mine", method="POST")
+				input(type="text", name="description")
+				input(type="text", name="email")
+				button(type="submit") Submit
+	else
+		div.responses
+			for response in responses
+				p= responses.description
+				form(action="/send-that-shit", method="POST")
+					input(type="hidden", value="#{response.description}")
+					input(type="hidden", value="#{response.email}")
+					button(type="submit") This one's it!
 
