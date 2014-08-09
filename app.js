@@ -1,5 +1,5 @@
 var express = require('express'),
-  config = require('../config/config'),
+  config = require('./config/config'),
   mongoose = require('mongoose'),
   fs = require('fs');
 
@@ -18,8 +18,6 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 var app = express();
 
 require('./config/express')(app, config);
-
-require('./routes')(app);
 
 app.listen(config.port);
 

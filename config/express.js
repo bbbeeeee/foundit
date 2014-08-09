@@ -55,4 +55,8 @@ module.exports = function(app, config) {
     });
   });
 
+  app.route('*')
+  .get(function(req, res){
+    res.send('lol');
+  })
 };
