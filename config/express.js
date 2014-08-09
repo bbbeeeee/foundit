@@ -15,8 +15,8 @@ module.exports = function(app, config) {
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
   app.use(logger('dev'));
-  app.use(bodyParser.json());
   app.use(cookieParser());
+  app.use(bodyParser.json());  
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
