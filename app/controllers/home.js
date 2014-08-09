@@ -21,35 +21,41 @@ module.exports = function (app) {
 
   app.route('/found')
   .get(function(req, res, next){
-
+    var foundlist = Found.find({});
+    console.log(foundList);
     res.render('found_list', {
-
+      foundlist: foundList
     })
   });
 
   app.route('/found/:id')
   .get(function(req, res, next){
+    var _found = Found.findOne({_id: req.params.id});
 
     res.render('found_specific', {
-
+      found: _found
     });
   });
 
   // get id from req.session
   app.route('/i-found-something')
   .post(function(req, res, next){
-    var newFound = new Found({
-      userId: req.session.userId,
-      description: req.body.description
-    });
+    if(req.user){
+      var newFound = new Found({
+        userId: req.session.userId,
+        description: req.body.description
+      });
 
-    newFound.save(function(err){
-      if(err){
-        console.log(err);
-      } else {
-        res.redirect('/')
-      }
-    })
+      newFound.save(function(err){
+        if(err){
+          console.log(err);
+        } else {
+          res.redirect('/')
+        }
+      })
+    } else {
+      res.redirect('/login');
+    }
   })
   .get(function(req, res, next){
 
