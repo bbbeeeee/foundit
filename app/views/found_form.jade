@@ -1,6 +1,10 @@
 extends layout
 
 block content
+	if(loggedin)
+		br
+		br
+	<h1>What did you find?</h1>
 	form(action="/i-found-something", method="POST", id="foundSubmit")
 		textarea(name="description")
 		select

@@ -1,3 +1,9 @@
 #foundSubmit {
   display: inline-flex;
 }
+
+h1 {
+  font-family: "Lobster" cursive;
+  font-size: 50px;
+  text-align: center;
+}
