@@ -50,7 +50,7 @@ module.exports = function (app) {
         else{
           LostResponse.find({lostId: _lost._id}, function(err, _responses) {
             console.log("_lost: " + _lost)
-            var _ownsThis = (_lost.userId.equals(req.user._id));
+            // var _ownsThis = (_lost.userId.equals(req.user._id));
             res.render('lost_specific', {
               lost: _lost,
               responses: _responses,
