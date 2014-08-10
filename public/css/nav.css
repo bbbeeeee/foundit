@@ -1,0 +1,37 @@
+.nav {
+  margin: -8px;
+  width: 101%;
+  height: 70px;
+  background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+  list-style-type: none;
+  padding-left: 3px;
+  position: fixed;
+  z-index: 100;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav li {
+  display:inline;
+  padding:0;
+  margin:0;
+}
+
+#logo {
+  font-family: "Lobster" cursive;
+  font-size: 60px;
+  color: #ff6666;
+  float: left;
+  margin-left: 20px;
+}
+
+.links {
+  float: right;
+  margin-right: 50px;
+  margin-top: 20px;
+  font-size: 30px;
+  font-family: "Arvo", serif;
+  color: #ff6666;
+}

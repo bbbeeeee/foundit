@@ -1,4 +1,5 @@
 ul.nav
+<<<<<<< HEAD
 	li
 		a(href="/") home
 	li
@@ -7,3 +8,13 @@ ul.nav
 		a(href="/i-found-something") i found something
 	li
 		a(href="/i-lost-something") i lost something
+=======
+	li(class=(title === 'index' ? 'active' : ''))
+		a(href="/" id="logo") FoundIt
+	li(class=(title === 'found_list' ? 'active' : ''))
+		a(href="/found" class="links") Found
+	li(class=(title === 'found_form' ? 'active' : ''))
+		a(href="/i-found-something" class="links") I Found Something
+	li(class=(title === 'lost_form' ? 'active' : ''))
+		a(href="/i-lost-something" class="links") I Lost Something
+>>>>>>> de091886b7366638aabdeac46be4b5a691933a5f

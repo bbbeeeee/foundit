@@ -1,0 +1,11 @@
+.foundobject {
+  margin: 50px;
+  width: 80%;
+  height: 100px;
+  background-color: #D6D6D6;
+  display: inline-flex;
+}
+
+.pic {
+  width: 100px;
+}
