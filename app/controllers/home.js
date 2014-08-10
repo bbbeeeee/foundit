@@ -115,18 +115,21 @@ module.exports = function (app) {
 
       // NLP check distance so we can estimate whether or not to send it
       // to you
-      Found.find({}, function(err, founds){
-        founds.forEach(function(found, index){
-          if(nlp.isSimilar(req.body.description, found.description)){
-            sendgrid.sendWeThink()
-          }
-        })
-      });
-
-      newFound.save(function(err){
+      
+      newFound.save(function(err, doc){
         if(err){
           console.log(err);
         } else {
+          Lost.find({}, function(err, losts){
+            losts.forEach(function(lost, index){
+              if(nlp.isSimilar(req.body.description, lost.description)){
+                User.findOne({_id: lost.userId}, function(err, user){
+                  sendgrid.sendWeThink(email, req.body.description, req.body.title, doc._id);
+                })
+              }
+            });
+          });
+
           res.redirect('/')
         }
       })
@@ -146,7 +149,7 @@ module.exports = function (app) {
   .post(function(req, res, next){
     if(req.user){
       var newLost = new Lost({
-        userId: req.session.userId,
+        userId: req.user._id,
         title: req.body.title,
         description: req.body.description
       });

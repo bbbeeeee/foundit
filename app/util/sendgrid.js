@@ -31,10 +31,8 @@ module.exports = {
 				"Here's a description of my item:\n\n" +
 				message + "\n\n" +
 				"Does it match the item you found?\n\n" +
-				"If so, click this link so we can meet up: " +
-				"URL" ;
-				console.log('email' + email);
-				console.log(message);
+				"If so, email me back!";
+				
 			var messageToPerson = {
 		    to: email,
 		    from: 'bobbinladen1234@gmail.com',

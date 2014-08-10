@@ -25,7 +25,7 @@ block content
 		else
 			.respond
 				h2 I think this is mine:
-				form(action="/this-is-mine", method="POST")
+				form.newFound(action="/this-is-mine", method="POST")
 					input(type="hidden", name="id", value="#{found._id}")
 					textarea(name="description", placeholder="Describe the item as well as you can")
 					input(type="text", name="email", placeholder="Please enter your email")

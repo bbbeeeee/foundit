@@ -24,5 +24,39 @@ button {
 }
 
 .respond form {
-	display: inline-flex;
+	/*display: inline-flex;*/
+}
+
+form.newFound{
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+.newFound > *{
+	font-family: "Arvo", serif;
+}
+
+.newFound > *:not(button){
+	display:block;
+	margin:0 auto;
+	margin-top:10px;
+	border:1px solid #eee;
+	width:100%;
+}
+
+.newFound > *:focus{
+	border:0px solid black;
+}
+
+.newFound input{
+	padding:10px;
+	border-radius: 2px;
+}
+
+.newFound textarea{
+	padding:10px;
+	border-radius: 2px;
+
 }
