@@ -1,4 +1,7 @@
 ul.nav
+	if loggedin
+		li
+			a(href='/logout', class='links') Log out
 	li
 		a(href="/" id="logo") FoundIt
 	li
@@ -7,3 +10,4 @@ ul.nav
 		a(href="/i-found-something" class="links") I Found Something
 	li
 		a(href="/i-lost-something" class="links") I Lost Something
+	

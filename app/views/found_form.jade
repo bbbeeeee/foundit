@@ -9,14 +9,9 @@ block css
 
 
 block content
-	div#mapcanvas
 	<h1>What did you find?</h1>
-	form(action="/i-found-something", method="POST", id="foundSubmit")
-		input(type='hidden', name='lat', value='', id='lat')
-		input(type='hidden', name='long', value='', id='long')
+	form.newFound(action="/i-found-something", method="POST", id="foundSubmit")
 		textarea(name="title", placeholder="What is the item?")
 		textarea(name="description", placeholder="Please describe the item")
 		input(type="text", name="email", placeholder="Please enter your e-mail")
 		button(type="submit") Submit
-block scripts
-	script(src="/scripts/geolocate.js")

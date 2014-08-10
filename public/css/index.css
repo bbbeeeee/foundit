@@ -54,7 +54,7 @@
 #restofpage {
   width: 101%;
   position: relative;
-  height: 400px;
+  height: auto;
 }
 
 #restofpage h1 {
@@ -103,4 +103,8 @@
   height: 300px;
   border-radius: 20px;
   background-color: white;
+}
+
+.textyolo{
+  padding:100px;
 }

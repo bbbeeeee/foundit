@@ -6,5 +6,6 @@ block css
 block content
 	#founds
 		each found in foundlist
-			.foundobject
-				a(href="/found/#{found._id}")= found.title
+			a(href="/found/#{found._id}")
+				.foundobject
+					p= found.title

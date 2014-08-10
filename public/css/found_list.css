@@ -1,5 +1,5 @@
 #founds {
-  background-color: #FFFD7F;
+  /*background-color: #FFFD7F;*/
   margin: -8px;
   width: 101%;
   height: 800px;
@@ -9,13 +9,13 @@
   margin: 50px;
   width: 90%;
   height: 100px;
-  background-color: #D6D6D6;
-  display: inline-flex;
+  background-color:#5CD6D6;
 }
 
-.foundobject a {
-  text-decoration: none;
+.foundobject p {
+  text-decoration: none !important;
+  color:white;
   font-family: "Arvo", serif;
   font-size: 40px;
-
+  padding:25px;
 }

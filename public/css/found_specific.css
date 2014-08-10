@@ -1,13 +1,24 @@
 #map{
-	width:350px;
-	height:200px;
+	width:800px;
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
-.originalDescription{
-	float:left;
-	padding-right:100px;
+.morebitch{
+	font-family: "Arvo", serif;
+	text-align:center;
 }
 
-.responses, .respond{
-	display:block;
+h2 {
+	font-size:30px;
+}
+
+p {
+	font-size:20px;
+}
+
+button {
+	padding:10px;
+	font-size:20px;
 }
