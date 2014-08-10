@@ -9,3 +9,18 @@ button, input[type="button"], input[type="submit"] {
 form, input[type = "text"], input[type = "password"]{
 	border-color: #ff6666;
 }
+
+.form {
+	height: 600px;
+	color: gray;
+	width: 300px;
+	border-radius: 30px;
+}
+
+#signup {
+	clear: right;
+}
+
+#login {
+	clear: left;
+}
