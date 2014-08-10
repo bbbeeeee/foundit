@@ -1,9 +1,15 @@
 extends layout
 
+block css
+	link(rel='stylesheet', href='/css/found_specific.css')
+block js
+	script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+
 block content
 	div.originalDescription
 		h2= found.title
 		p= found.description
+		div#map
 	if ownsThis
 		h2 Responses:
 		div.responses
@@ -22,4 +28,6 @@ block content
 				input(type="text", name="description")
 				input(type="text", name="email")
 				button(type="submit") Submit
-
+	
+	block scripts
+		script(src="/scripts/showgeo.js")
