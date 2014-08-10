@@ -29,7 +29,7 @@ module.exports = function(app, config) {
     store: new MongoStore({ 
       'db': 'wilu-dev', 
       'collection': 'sessions',
-      'ttl': 10000000,
+      'ttl': 60*60*60,
       'mongooseConnection': mongoose.connections[0]
     }),
     resave: true,
@@ -37,7 +37,7 @@ module.exports = function(app, config) {
     url: config.db,
     secret: 'secret',
     collection: 'sessions',
-    cookie: { maxAge: 10000000 }
+    cookie: { maxAge: 60*60*60 }
   }));
   app.use(passport.initialize());
   app.use(passport.session());
