@@ -54,7 +54,7 @@ module.exports = function (app) {
             res.render('lost_specific', {
               lost: _lost,
               responses: _responses,
-              ownsThis: _ownsThis
+              // ownsThis: _ownsThis
             })
           })
         }
