@@ -1,0 +1,11 @@
+button, input[type="button"], input[type="submit"] { 
+    color:#000000; 
+    font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+    background-color:#ff6666; 
+    border:1px solid; 
+    border-color:  #000000; 
+} 
+
+form, input[type = "text"], input[type = "password"]{
+	border-color: #ff6666;
+}

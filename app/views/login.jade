@@ -1,12 +1,13 @@
 extends layout
 
 block content
+	button.
 	form(action='/login', method='POST', id='loginForm')
 		input(type="text", name='email', placeholder='email')
 		input(type="password", name='password', placeholder='password')
 		button(type='submit') Log in
-	//form(action="/signup", method='POST', id='signupForm')
-		//input(type="text", name='email', placeholder='email')
-		//input(type="text", name='fullname', placeholder='full name')
-		//input(type="password", name='password', placeholder='password')
-		//button(type='submit') Sign up
+	form(action="/signup", method='POST', id='signupForm')
+		input(type="text", name='email', placeholder='email')
+		input(type="text", name='fullname', placeholder='full name')
+		input(type="password", name='password', placeholder='password')
+		button(type='submit') Sign up
