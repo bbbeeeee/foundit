@@ -8,4 +8,32 @@ button, input[type="button"], input[type="submit"] {
 
 form, input[type = "text"], input[type = "password"]{
 	border-color: #ff6666;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	
+}
+
+.form {
+	width: 300px;
+	border-radius: 50px;
+	padding-bottom
+	: 300px;
+	padding-top: 50px;
+	padding-left:70px;
+}
+
+#signup {
+	float: right;
+	background-color: #ff6666;
+
+}
+
+#login {
+	float: left;
+	background-color: #fffd7f;
+}
+
+body{
+	background-color: #999999;
 }
