@@ -1,7 +1,8 @@
 extends layout
 
 block content
-	ul
+	#founds
 		each found in foundlist
-			li
+			.foundobject
+				.pic
 				a(href="/found/#{found._id}")= found.description

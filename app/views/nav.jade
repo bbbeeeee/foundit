@@ -1,9 +1,9 @@
-ul
-	li
-		a(href="/") home
-	li
-		a(href="/found") found
-	li
-		a(href="/i-found-something") i found something
-	li
-		a(href="/i-lost-something") i lost something
+ul.nav
+	li(class=(title === 'index' ? 'active' : ''))
+		a(href="/") Home
+	li(class=(title === 'found_list' ? 'active' : ''))
+		a(href="/found") Found
+	li(class=(title === 'found_form' ? 'active' : ''))
+		a(href="/i-found-something") I Found Something
+	li(class=(title === 'lost_form' ? 'active' : ''))
+		a(href="/i-lost-something") I Lost Something
