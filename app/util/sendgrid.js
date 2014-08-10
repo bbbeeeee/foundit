@@ -45,5 +45,24 @@ module.exports = {
 			    if (err) { return console.error(err); }
 			    console.log(json);
 			});
+		},
+		sendWeThink: function(email, message, itemTitle, id){
+			var message = "Hey, this is FoundIt!\n\n" +
+			"We think we found someone with your '" + itemTitle + "'\n\n" +
+			"If the description below matches your item, go to the link below and accept it!\n\n" +
+			"Description: \n" + message + "\n\n" +
+			"Link: " + "http://localhost/found/" + id;
+
+			var messageToPerson = {
+				to: email,
+		    from: 'bobbinladen1234@gmail.com',
+		    subject: 'Hey, we think someone found your ' + itemTitle,
+		    text: message
+			}
+
+			sendgrid.send(messageToPerson, function(err, json){
+				if (err) { return console.error(err); }
+			  console.log(json);
+			});
 		}
 }

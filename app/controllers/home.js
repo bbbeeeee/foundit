@@ -97,6 +97,7 @@ module.exports = function (app) {
     });
   });
 
+  // lost submission
   app.route('/i-lost-something')
   .post(function(req, res, next){
     if(req.user){
@@ -120,7 +121,7 @@ module.exports = function (app) {
   .get(function(req, res, next){
     if(req.user){
       res.render('lost_form', {
-        
+
       });
     }
   });

@@ -1,5 +1,8 @@
 extends layout
 
+block css
+	link(rel='stylesheet', href='/css/login.css')
+
 block content
 	button.
 	form(action='/login', method='POST', id='loginForm')
