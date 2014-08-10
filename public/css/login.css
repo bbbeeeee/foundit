@@ -8,6 +8,11 @@ button, input[type="button"], input[type="submit"] {
     height: 30px;
     margin-left: 25px;
 } 
+
+input[name="email"]{
+	margin-top: 150px;
+}
+
 .city2 {
   margin: -8px;
   height: 850px;
@@ -23,13 +28,15 @@ form, input[type = "text"], input[type = "password"]{
 	border-color: #ff6666;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	padding-left: 20px;-
+	padding-left: 20px;
 }
+
 
 
 
 #signup {
 	float: right;
+	margin-right: 50px;
 }
 
 #sign {
@@ -39,8 +46,5 @@ form, input[type = "text"], input[type = "password"]{
 
 #login {
 	float: left;
-}
-
-#login {
-	float: left;
+	margin-left: 50px;
 }
