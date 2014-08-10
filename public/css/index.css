@@ -24,9 +24,15 @@
 
 .text a {
   text-decoration: none;
-  position: absolute;
   top:  400px;
-  left: 585px;
+}
+
+#overcomplicating {
+  margin-top:-150px;
+  width:500px;
+  padding:30px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #logbutton {
@@ -34,6 +40,7 @@
   font-family: "Arvo", serif;
   font-size: 30px;
   width: 300px;
+  margin: 0 auto;
   height: 40px;
   padding: 10px;
   transition: box-shadow 0.5s;
