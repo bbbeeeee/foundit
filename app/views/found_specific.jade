@@ -27,9 +27,9 @@ block content
 				h2 I think this is mine:
 				form(action="/this-is-mine", method="POST")
 					input(type="hidden", name="id", value="#{found._id}")
-					input(type="text", name="description")
-					input(type="text", name="email")
+					textarea(name="description", placeholder="Describe the item as well as you can")
+					input(type="text", name="email", placeholder="Please enter your email")
 					button(type="submit") Submit
-	
+
 	block scripts
 		script(src="/scripts/showgeo.js")

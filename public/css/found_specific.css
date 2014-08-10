@@ -22,3 +22,7 @@ button {
 	padding:10px;
 	font-size:20px;
 }
+
+.respond form {
+	display: inline-flex;
+}

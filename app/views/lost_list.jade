@@ -6,6 +6,6 @@ block css
 block content
 	#founds
 		each lost in lostlist
-			a(href="/found/#{found._id}")
+			a(href="/lost/#{lost._id}")
 				.foundobject
-					p= found.title
+					p= lost.title

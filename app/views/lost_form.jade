@@ -1,9 +1,10 @@
 extends layout
 
-block css	
+block css
 	link(rel='stylesheet', href='/css/found_form.css')
 
 block content
+	<h1>What did you lose?</h1>
 	form.newFound(action="/i-lost-something", method="POST", id="foundSubmit")
 		textarea(name="title", placeholder="What is the item?")
 		textarea(name="description", placeholder="Please describe the item")

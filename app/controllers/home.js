@@ -4,6 +4,7 @@ var express = require('express'),
   User = mongoose.model('User'),
   Found = mongoose.model('Found'),
   Response = mongoose.model('Response'),
+  LostResponse = mongoose.model('LostResponse'),
   sendgrid = require('../util/sendgrid.js'),
   Lost = mongoose.model('Lost'),
   nlp = require('../util/nlp.js');
@@ -13,7 +14,7 @@ module.exports = function (app) {
   app.route('/')
   .get(function (req, res, next) {
     res.render('index', {
-      
+
     });
   });
 
@@ -25,7 +26,7 @@ module.exports = function (app) {
           foundlist: foundList
         })
       });
-      
+
     }
   });
 
@@ -37,9 +38,29 @@ module.exports = function (app) {
           lostlist: lostList
         })
       });
-      
+
     }
   });
+
+  app.route('/lost/:id')
+  .get(function(req, res, next) {
+    if(req.user) {
+      Lost.findOne({_id:req.params.id}, function(err, _lost) {
+        if(!_lost) res.redirect('/lost');
+        else{
+          LostResponse.find({lostId: _lost._id}, function(err, _responses) {
+            console.log("_lost: " + _lost)
+            var _ownsThis = (_lost.userId.equals(req.user._id));
+            res.render('lost_specific', {
+              lost: _lost,
+              responses: _responses,
+              ownsThis: _ownsThis
+            })
+          })
+        }
+      })
+    } else res.redirect('/login');
+  })
 
   app.route('/found/:id')
   .get(function(req, res, next){
@@ -92,7 +113,7 @@ module.exports = function (app) {
         description: req.body.description
       });
 
-      // NLP check distance so we can estimate whether or not to send it 
+      // NLP check distance so we can estimate whether or not to send it
       // to you
       Found.find({}, function(err, founds){
         founds.forEach(function(found, index){
@@ -156,7 +177,7 @@ module.exports = function (app) {
       console.log(err);
       console.log(user);
       sendgrid.sendLost(req.body.email,
-        req.body.description, 
+        req.body.description,
         req.body.title,
         user);
       res.redirect('/found');

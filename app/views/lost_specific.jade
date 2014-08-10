@@ -1,0 +1,35 @@
+extends layout
+
+block css
+  link(rel='stylesheet', href='/css/found_specific.css')
+block js
+  script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+
+block content
+  div#map
+  .morebitch
+    div.originalDescription
+      h2= lost.title
+      p= lost.description
+    if ownsThis
+      .responses
+      h2 Responses:
+      div.responses
+        for response in responses
+          p= response.description
+          form(action="/this-is-it", method="POST")
+            input(type="hidden", name="title", value="#{lost.title}")
+            input(type="hidden", name="description", value="#{response.description}")
+            input(type="hidden", name="email", value="#{response.email}")
+            button(type="submit") This one's it!
+    else
+      .respond
+        h2 I think this is mine:
+        form(action="/this-is-mine", method="POST")
+          input(type="hidden", name="id", value="#{lost._id}")
+          textarea(name="description", placeholder="Describe the item as well as you can")
+          input(type="text", name="email", placeholder="Please enter your email")
+          button(type="submit") Submit
+
+  block scripts
+    script(src="/scripts/showgeo.js")
