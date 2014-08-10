@@ -1,6 +1,6 @@
 .unblurred {
   margin: -8px;
-  height: 900px;
+  height: 850px;
   width: 101%;
   background: url(/images/Final.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -19,4 +19,58 @@
   text-align: center;
   font-family: "Lobster" cursive;
   color: #ff6666;
+}
+
+#restofpage {
+  width: 101%
+  position: relative;
+  height: 400px;
+}
+
+#restofpage h1 {
+  font-family: "Lobster" cursive;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#restofpage p {
+  font-size: 30px;
+  font-family: "Arvo", serif;
+}
+
+#foundorsearch {
+  width: 101%;
+  margin: -8px;
+  position: relative;
+  height: 400px;
+  background-color: #ff6666;
+  display: inline-block;
+  font-family: "Lobster" cursive;
+  font-size: 40px;
+  text-align: center;
+}
+
+#foundorsearch p {
+  margin-top: 100px;
+}
+
+#found {
+  position: absolute;
+  margin: 50px;
+  left: 100px;
+  width: 450px;
+  height: 300px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#search {
+  position: absolute;
+  margin: 50px;
+  right: 100px;
+  width: 450px;
+  height: 300px;
+  border-radius: 20px;
+  background-color: white;
 }
