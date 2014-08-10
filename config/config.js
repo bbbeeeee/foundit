@@ -29,7 +29,7 @@ var config = {
       name: 'foundit'
     },
     port: 3000,
-    db: 'mongodb://wefoundit.herokuapp.com/foundit-production'
+    db: process.env.MONGOLAB_URI || 'mongodb://wefoundit.herokuapp.com/foundit-production'
     
   }
 };
