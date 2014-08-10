@@ -33,7 +33,7 @@ module.exports = function (app) {
   .get(function(req, res, next){
     Found.findOne({_id: req.params.id}, function(err, _found){
       Response.find({foundId: _found._id}, function(err, _responses){
-        var _ownsThis = (req.user.userId == _found.userId)
+        var _ownsThis = (req.user == _found.userId)
         res.render('found_specific', {
           found: _found,
           responses: _responses,
