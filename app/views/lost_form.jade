@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	form(action="/i-lost-something", method="POST", id="foundSubmit")
+		textarea(name="description", cols="30", rows="10")
+		input(type="text", name="email")
+		button(type="submit") Submit

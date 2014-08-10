@@ -44,7 +44,10 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
-
+  app.use(function (req, res, next) {
+    res.locals.loggedin = (!!req.user);
+    next();
+  });
   var controllersPath = path.join(__dirname, '../app/controllers');
   fs.readdirSync(controllersPath).forEach(function (file) {
     if (file.indexOf('.js') >= 0) {

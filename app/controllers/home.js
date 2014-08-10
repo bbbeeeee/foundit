@@ -116,6 +116,13 @@ module.exports = function (app) {
     } else {
       res.redirect('/login');
     }
+  })
+  .get(function(req, res, next){
+    if(req.user){
+      res.render('lost_form', {
+        
+      });
+    }
   });
 
   app.route('/this-is-it')
