@@ -9,19 +9,20 @@ block content
 	div.originalDescription
 		h2= found.title
 		p= found.description
-		div#map
+	div#map
 	if ownsThis
+		.responses
 		h2 Responses:
-		div.responses
-			for response in responses
-				p= response.description
-				form(action="/this-is-it", method="POST")
-					input(type="hidden", name="title", value="#{found.title}")
-					input(type="hidden", name="description", value="#{response.description}")
-					input(type="hidden", name="email", value="#{response.email}")
-					button(type="submit") This one's it!
+			div.responses
+				for response in responses
+					p= response.description
+					form(action="/this-is-it", method="POST")
+						input(type="hidden", name="title", value="#{found.title}")
+						input(type="hidden", name="description", value="#{response.description}")
+						input(type="hidden", name="email", value="#{response.email}")
+						button(type="submit") This one's it!
 	else
-		div.respond
+		.respond
 			h2 I think this is mine:
 			form(action="/this-is-mine", method="POST")
 				input(type="hidden", name="id", value="#{found._id}")

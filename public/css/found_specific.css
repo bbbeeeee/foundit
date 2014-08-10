@@ -1,4 +1,13 @@
 #map{
-	width:150px;
-	height:100px;
+	width:350px;
+	height:200px;
+}
+
+.originalDescription{
+	float:left;
+	padding-right:100px;
+}
+
+.responses, .respond{
+	display:block;
 }
