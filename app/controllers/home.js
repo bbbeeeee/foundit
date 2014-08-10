@@ -115,18 +115,22 @@ module.exports = function (app) {
 
       // NLP check distance so we can estimate whether or not to send it
       // to you
-      Found.find({}, function(err, founds){
-        founds.forEach(function(found, index){
-          if(nlp.isSimilar(req.body.description, found.description)){
-            sendgrid.sendWeThink()
-          }
-        })
-      });
 
-      newFound.save(function(err){
+      newFound.save(function(err, doc){
         if(err){
           console.log(err);
         } else {
+          Lost.find({}, function(err, losts){
+            losts.forEach(function(lost, index){
+              if(nlp.isSimilar(req.body.description, lost.description)){
+                User.findOne({_id: lost.userId}, function(err, user){
+                  if(doc)
+                    sendgrid.sendWeThink(email, req.body.description, req.body.title, doc._id);
+                })
+              }
+            });
+          });
+
           res.redirect('/')
         }
       })
