@@ -10,6 +10,8 @@
   width: 90%;
   height: 100px;
   background-color:#5CD6D6;
+  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
 }
 
 .foundobject p {
@@ -18,4 +20,8 @@
   font-family: "Arvo", serif;
   font-size: 40px;
   padding:25px;
+}
+
+.foundobject:hover{
+  background-color:#BEEFEF;
 }

@@ -21,9 +21,20 @@ module.exports = function (app) {
   .get(function(req, res, next){
     if(req.user){
       var foundList = Found.find({}, function(err, foundList){
-        console.log(req.user);
         res.render('found_list', {
           foundlist: foundList
+        })
+      });
+      
+    }
+  });
+
+  app.route('/lost')
+  .get(function(req, res, next){
+    if(req.user){
+      var lostList = Lost.find({}, function(err, lostList){
+        res.render('lost_list', {
+          lostlist: lostList
         })
       });
       
@@ -83,13 +94,13 @@ module.exports = function (app) {
 
       // NLP check distance so we can estimate whether or not to send it 
       // to you
-      // Found.find({}, function(err, founds){
-      //   founds.forEach(function(found, index){
-      //     if(nlp.isSimilar(req.body.description, found.description)){
-      //       sendgrid.sendWeThink()
-      //     }
-      //   })
-      // });
+      Found.find({}, function(err, founds){
+        founds.forEach(function(found, index){
+          if(nlp.isSimilar(req.body.description, found.description)){
+            sendgrid.sendWeThink()
+          }
+        })
+      });
 
       newFound.save(function(err){
         if(err){

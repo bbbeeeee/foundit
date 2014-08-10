@@ -1,0 +1,11 @@
+extends layout
+
+block css
+	link(rel='stylesheet', href='/css/found_list.css')
+
+block content
+	#founds
+		each lost in lostlist
+			a(href="/found/#{found._id}")
+				.foundobject
+					p= found.title
