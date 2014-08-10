@@ -2,6 +2,11 @@ extends layout
 
 block content
 	form(action="/i-found-something", method="POST", id="foundSubmit")
-		textarea(name="description", cols="30", rows="10")
+		textarea(name="description")
+		select
+			option(value="phone") Phone
+			option(value="laptop") Laptop
+			option(value="book") Book
+			option(value="keys") Keys
 		input(type="text", name="email")
 		button(type="submit") Submit

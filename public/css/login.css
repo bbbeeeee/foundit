@@ -8,7 +8,6 @@ button, input[type="button"], input[type="submit"] {
     height: 30px;
     margin-left: 25px;
 } 
-
 .city2 {
   margin: -8px;
   height: 850px;
@@ -25,8 +24,6 @@ form, input[type = "text"], input[type = "password"]{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 20px;
-	opacity:1;
-	
 }
 
 .form {
@@ -52,4 +49,3 @@ form, input[type = "text"], input[type = "password"]{
 	float: left;
 	background-color: #fffd7f;
 }
-

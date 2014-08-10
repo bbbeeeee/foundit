@@ -1,0 +1,7 @@
+.nav {
+  margin: -8px;
+  width: 101%;
+  background-color: #F0F0F0;
+  height: 50px;
+  background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+}

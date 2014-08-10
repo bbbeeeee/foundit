@@ -29,16 +29,16 @@ module.exports = function(app, config) {
     store: new MongoStore({ 
       'db': 'wilu-dev', 
       'collection': 'sessions',
-      'ttl': 60*60*60,
+      'ttl': 10000000,
       'mongooseConnection': mongoose.connections[0]
-  }),
-  resave: true,
-  saveUninitialized: true,
-  url: config.db,
-  secret: 'secret',
-  collection: 'sessions',
-  cookie: { maxAge: 60*60*60 }
-}));
+    }),
+    resave: true,
+    saveUninitialized: true,
+    url: config.db,
+    secret: 'secret',
+    collection: 'sessions',
+    cookie: { maxAge: 10000000 }
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(compress());
