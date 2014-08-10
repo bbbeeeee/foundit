@@ -9,12 +9,13 @@ block content
 		.text
 			h1.
 				FoundIt
-			a(href="/login")
-				#logbutton
-					if loggedin
-						div FIND YOUR STUFF
-					else
-						div LOG-IN / REGISTER
+			#overcomplicating
+				a(href="/login")
+					#logbutton
+						if loggedin
+							div FIND YOUR STUFF
+						else
+							div LOG-IN / REGISTER
 		#restofpage
 			h1.
 				FoundIt is the internet's lost and found.
