@@ -12,6 +12,7 @@ var FoundResponsesSchema = new Schema({
 	userId: Schema.Types.ObjectId,
 	foundId: Schema.Types.ObjectId,
 	description: String,
+	email: String
 });
 
 mongoose.model('Found', FoundSchema);
