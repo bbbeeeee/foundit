@@ -2,9 +2,6 @@ extends layout
 
 block content
 	div#mapcanvas
-	if(loggedin)
-		br
-		br
 	<h1>What did you find?</h1>
 	form(action="/i-found-something", method="POST", id="foundSubmit")
 		input(type='hidden', name='lat', value='', id='lat')

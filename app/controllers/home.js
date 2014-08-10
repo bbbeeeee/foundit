@@ -19,11 +19,15 @@ module.exports = function (app) {
 
   app.route('/found')
   .get(function(req, res, next){
-    var foundList = Found.find({}, function(err, foundList){
-      res.render('found_list', {
-        foundlist: foundList
-      })
-    });
+    if(req.user){
+      var foundList = Found.find({}, function(err, foundList){
+        console.log(req.user);
+        res.render('found_list', {
+          foundlist: foundList
+        })
+      });
+      
+    }
   });
 
   app.route('/found/:id')

@@ -46,6 +46,7 @@ module.exports = function(app, config) {
   app.use(methodOverride());
   app.use(function (req, res, next) {
     res.locals.loggedin = (!!req.user);
+    console.log(res.locals.loggedin);
     next();
   });
   var controllersPath = path.join(__dirname, '../app/controllers');
