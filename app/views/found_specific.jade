@@ -5,18 +5,21 @@ block content
 		h2= found.title
 		p= found.description
 	if ownsThis
+		h2 Responses:
+		div.responses
+			for response in responses
+				p= response.description
+				form(action="/this-is-it", method="POST")
+					input(type="hidden", name="title", value="#{found.title}")
+					input(type="hidden", name="description", value="#{response.description}")
+					input(type="hidden", name="email", value="#{response.email}")
+					button(type="submit") This one's it!
+	else
 		div.respond
 			h2 I think this is mine:
 			form(action="/this-is-mine", method="POST")
+				input(type="hidden", name="id", value="#{found._id}")
 				input(type="text", name="description")
 				input(type="text", name="email")
 				button(type="submit") Submit
-	else
-		div.responses
-			for response in responses
-				p= responses.description
-				form(action="/send-that-shit", method="POST")
-					input(type="hidden", value="#{response.description}")
-					input(type="hidden", value="#{response.email}")
-					button(type="submit") This one's it!
 

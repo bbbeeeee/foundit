@@ -9,4 +9,5 @@ var UserSchema = new Schema({
 	}
 });
 
+
 mongoose.model('User', UserSchema);
