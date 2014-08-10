@@ -11,7 +11,10 @@ block content
 				FoundIt
 			a(href="/login")
 				#logbutton
-					LOG-IN / REGISTER
+					if loggedin
+						div FIND YOUR STUFF
+					else
+						div LOG-IN / REGISTER
 		#restofpage
 			h1.
 				FoundIt is the internet's lost and found.

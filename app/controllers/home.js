@@ -5,19 +5,16 @@ var express = require('express'),
   Found = mongoose.model('Found'),
   Response = mongoose.model('Response'),
   sendgrid = require('../util/sendgrid.js'),
-  Lost = mongoose.model('Lost');
+  Lost = mongoose.model('Lost'),
+  nlp = require('../util/nlp.js');
 
 module.exports = function (app) {
 
   app.route('/')
   .get(function (req, res, next) {
-    if(!req.user){
-      res.render('index', {
-        
-      });
-    } else {
-      res.redirect('/found');
-    }
+    res.render('index', {
+      
+    });
   });
 
   app.route('/found')
@@ -64,7 +61,8 @@ module.exports = function (app) {
         } else {
           res.redirect('/found');
         }
-      })
+      });
+
     }
   });
 
@@ -78,6 +76,16 @@ module.exports = function (app) {
         title: req.body.title,
         description: req.body.description
       });
+
+      // NLP check distance so we can estimate whether or not to send it 
+      // to you
+      // Found.find({}, function(err, founds){
+      //   founds.forEach(function(found, index){
+      //     if(nlp.isSimilar(req.body.description, found.description)){
+      //       sendgrid.sendWeThink()
+      //     }
+      //   })
+      // });
 
       newFound.save(function(err){
         if(err){
