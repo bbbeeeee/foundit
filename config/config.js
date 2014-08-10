@@ -29,7 +29,7 @@ var config = {
       name: 'foundit'
     },
     port: 3000,
-    db: 'mongodb://localhost/foundit-production'
+    db: 'mongodb://wefoundit.herokuapp.com/foundit-production'
     
   }
 };
