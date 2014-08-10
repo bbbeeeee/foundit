@@ -16,7 +16,7 @@ function initialize() {
             $('#long').val(position.coords.longitude);
 
             console.log($('#lat').val())
-            console.log($('#long').val())
+            console.log($('#lat').val())
             var infowindow = new google.maps.InfoWindow({
                 map: map,
                 position: pos,
