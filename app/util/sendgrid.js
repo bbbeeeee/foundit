@@ -13,7 +13,7 @@ module.exports = {
 
 			var messageToPerson = {
 		    to: email,
-		    from: 'bobbinladen1234@gmail.com',
+		    from: 'brandonxtruong@gmail.com',
 		    subject: 'Hey, I found your ' + item.title,
 		    text: message
 			};
@@ -30,14 +30,12 @@ module.exports = {
 				"I saw that you found a similar item. " +
 				"Here's a description of my item:\n\n" +
 				message + "\n\n" +
-				"Does it match the item you found?\n\n" +
-				"If so, click this link so we can meet up: " +
-				"URL" ;
+				"Does it match the item you found?";
 				console.log('email' + email);
 				console.log(message);
 			var messageToPerson = {
 		    to: email,
-		    from: 'bobbinladen1234@gmail.com',
+		    from: 'brandonxtruong@gmail.com',
 		    subject: 'Hey, I found your ' + itemTitle,
 		    text: message
 			};
@@ -55,7 +53,7 @@ module.exports = {
 
 			var messageToPerson = {
 				to: email,
-		    from: 'bobbinladen1234@gmail.com',
+		    from: 'brandonxtruong@gmail.com',
 		    subject: 'Hey, we think someone found your ' + itemTitle,
 		    text: message
 			}
