@@ -29,7 +29,7 @@ var config = {
       name: 'foundit'
     },
     port: 3000,
-    db: process.env.MONGOLAB_URI || 'yolo'
+    db: process.env.MONGOLAB_URI || 'mongodb://localhost/foundit-production'
     
   }
 };
