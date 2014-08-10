@@ -1,7 +1,12 @@
 extends layout
 
 block content
+	div#mapcanvas
 	form(action="/i-found-something", method="POST", id="foundSubmit")
+		input(type='hidden', name='lat', value='', id='lat')
+		input(type='hidden', name='long', value='', id='long')
 		textarea(name="description", cols="30", rows="10")
 		input(type="text", name="email")
 		button(type="submit") Submit
+block scripts
+	script(src="/public/scripts/geolocate.js")
