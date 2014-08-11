@@ -50,11 +50,11 @@ module.exports = function (app) {
         else{
           LostResponse.find({lostId: _lost._id}, function(err, _responses) {
             console.log("_lost: " + _lost)
-            var _ownsThis = (_lost.userId.equals(req.user._id));
+            // var _ownsThis = (_lost.userId.equals(req.user._id));
             res.render('lost_specific', {
               lost: _lost,
               responses: _responses,
-              ownsThis: _ownsThis
+              // ownsThis: _ownsThis
             })
           })
         }
@@ -115,7 +115,6 @@ module.exports = function (app) {
 
       // NLP check distance so we can estimate whether or not to send it
       // to you
-      
       newFound.save(function(err, doc){
         if(err){
           console.log(err);
@@ -124,7 +123,8 @@ module.exports = function (app) {
             losts.forEach(function(lost, index){
               if(nlp.isSimilar(req.body.description, lost.description)){
                 User.findOne({_id: lost.userId}, function(err, user){
-                  sendgrid.sendWeThink(email, req.body.description, req.body.title, doc._id);
+                  if(doc)
+                    sendgrid.sendWeThink(email, req.body.description, req.body.title, doc._id);
                 })
               }
             });

@@ -9,7 +9,7 @@ var config = {
       name: 'foundit'
     },
     port: 3000,
-    db: 'mongodb://localhost/foundit-development'
+    db: process.env.MONGOLAB_URI || 'mongodb://localhost/foundit-development'
     
   },
 
@@ -19,7 +19,7 @@ var config = {
       name: 'foundit'
     },
     port: 3000,
-    db: 'mongodb://localhost/foundit-test'
+    db: process.env.MONGOLAB_URI || 'mongodb://localhost/foundit-test'
     
   },
 
@@ -28,8 +28,8 @@ var config = {
     app: {
       name: 'foundit'
     },
-    port: 3000,
-    db: 'mongodb://localhost/foundit-production'
+    port: process.env.PORT || 3000,
+    db: process.env.MONGOLAB_URI || 'mongodb://localhost/foundit-production'
     
   }
 };

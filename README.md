@@ -1,4 +1,5 @@
 foundit
 =======
+Web app to help connect people who find things and people who lose things together, safely.
 
-FIND YOUR SHIT
+Made at BattleHack Boston 2014.
